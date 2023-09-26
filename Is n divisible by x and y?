@@ -1,0 +1,9 @@
+// Create a function that checks if a number n is divisible by two numbers x AND y. All inputs are positive, non-zero numbers.
+
+func isDivisible(_ n: Int, _ x: Int, _ y: Int) -> Bool {
+  let dividedX = n % x
+  let dividedY = n % y
+  let conditionX = dividedX == 0
+  let conditionY = dividedY == 0
+  return conditionX && conditionY ? true : false
+}
