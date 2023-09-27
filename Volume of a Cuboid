@@ -1,0 +1,8 @@
+// Bob needs a fast way to calculate the volume of a cuboid with three values: the length, width and height of the cuboid. Write a function to help Bob with this calculation.
+
+func getVolumeOfCuboid(length: Int, width: Int, height: Int) -> Int {
+  guard length > 0 && width > 0 && height > 0 else {print("The values are incorrect") 
+                                                    return 0}
+  let cuboid = length*width*height
+  return cuboid
+}
