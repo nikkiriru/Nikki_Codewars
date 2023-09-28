@@ -1,0 +1,14 @@
+// Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
+
+func fakeBin(digits: String) -> String {
+    var bin = ""
+    guard !digits.isEmpty else {return bin}
+    for char in digits {
+        switch char {
+            case "0", "1", "2", "3", "4": bin += "0"
+            case "5", "6", "7", "8", "9": bin += "1"
+            default: bin += ""
+        }
+    }
+    return bin
+}
