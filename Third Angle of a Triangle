@@ -1,0 +1,11 @@
+// You are given two interior angles (in degrees) of a triangle.
+// Write a function to return the 3rd.
+// Note: only positive integers will be tested.
+
+
+func otherAngle(a: Int, b: Int) -> Int {
+    guard a > 0 && b > 0 else {print("Input only positive integers")
+                               return 0}
+    let angleC = 180 - a - b
+    return angleC
+}
