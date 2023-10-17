@@ -1,0 +1,16 @@
+// Create a function that takes 2 integers in form of a string as an input, and outputs the sum (also as a string):
+// Example: (Input1, Input2 -->Output)
+// "4",  "5" --> "9"
+// "-5", "3" --> "-2"
+// Notes:
+// If either input is an empty string, consider it as zero.
+// Inputs and the expected output will never exceed the signed 32-bit integer limit (2^31 - 1)
+
+func sum_str(_ a:String, _ b:String) -> String {
+    let numberA = a.isEmpty ? 0 : Int(a)!
+    let numberB = b.isEmpty ? 0 : Int(b)!
+    guard numberA <= 2147483647 && numberB <= 2147483647 else {return "Too large numbers!"}
+    let sum = numberA + numberB
+    guard sum <= 2147483647 else {return "The sum of the numbers is too large!"}
+    return String(sum)
+}
