@@ -1,0 +1,25 @@
+// Write a method, that will get an integer array as parameter and will process every number from this array.
+// Return a new array with processing every number of the input-array like this:
+// If the number has an integer square root, take this, otherwise square the number.
+// Example
+// [4,3,9,7,2,1] -> [2,9,3,49,4,1]
+// Notes
+// The input array will always contain only positive numbers, and will never be null.
+
+import Foundation
+
+func squareOrSquareRoot(_ input: [Int]) -> [Int] {
+    var resultedArray: [Int] = []
+    guard !input.isEmpty else {return resultedArray}
+    input.forEach { number in 
+        let rooted = Double(number).squareRoot()
+        let rounded = rooted.rounded(.down)
+        let afterPoint = rooted - rounded
+        let canBeRooted = afterPoint == 0.0
+        switch canBeRooted {
+            case true: return resultedArray.append(Int(rooted))
+            default: return resultedArray.append(Int(number*number))
+        }
+    }
+    return resultedArray
+}
