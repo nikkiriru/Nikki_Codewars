@@ -1,0 +1,31 @@
+// Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+// Return your answer as a number.
+
+func sumMix(_ arr: [Any]) -> Int {
+    var resultedSum = 0
+    var arrayOfString: [String] = []
+    guard !arr.isEmpty else {return resultedSum}
+    for each in arr {
+        switch each {
+            case is Int:
+                resultedSum += each as! Int
+            case is String:
+                arrayOfString.append(each as! String)
+            default:
+                print("There is somethimg wrong in the array")
+                resultedSum = 0
+                break
+        }
+    }
+    for string in arrayOfString {
+        if let integer = Int(string) {
+            resultedSum += integer
+        }
+        else {
+            print("There is somethimg wrong in the array")
+            resultedSum = 0
+            break
+        }
+    }
+    return resultedSum
+}
