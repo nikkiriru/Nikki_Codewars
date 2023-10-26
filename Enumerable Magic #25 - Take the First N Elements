@@ -1,0 +1,10 @@
+// Create a function take that takes an Array<Int> and an Int, n, and returns an Array<Int> containing the first up to n elements from the array.
+
+func take(_ arr: [Int], _ n: Int) -> [Int] {
+    var newArray = arr
+    let arrayMaxIndex = arr.count - 1
+    guard !arr.isEmpty else {return []}
+    guard n <= arrayMaxIndex else {return newArray}
+    newArray.removeSubrange(n...arrayMaxIndex)
+    return newArray
+}
