@@ -1,0 +1,33 @@
+// Task
+// Consider integer numbers from 0 to n - 1 written down along the circle in such a way that the distance between any two neighbouring numbers is equal (note that 0 and n - 1 are neighbouring, too).
+// Given n and firstNumber/first_number/first-number, find the number which is written in the radially opposite position to firstNumber.
+// Example
+// For n = 10 and firstNumber = 2, the output should be 7
+// Input/Output
+// [input] integer n
+// A positive even integer.
+// Constraints: 4 ≤ n ≤ 1000.
+// [input] integer firstNumber/first_number/first-number
+// Constraints: 0 ≤ firstNumber ≤ n - 1
+// [output] an integer
+
+func circleOfNumbers(_ n: Int, _ fst: Int) -> Int {
+    let rangeMax = 4...1000
+    let isEven = n % 2 == 0
+    let maxNumber = n - 1
+    let minNumber = 0
+    let rangeN = minNumber...maxNumber
+    guard rangeMax.contains(n) && isEven else {print("Error: input is not correct")
+                                             return 0}
+    guard rangeN.contains(fst) else {print("Error: input is not correct")
+                                     return 0}
+    
+    let findOpposite = n / 2 + fst
+    let isFind = rangeN.contains(findOpposite)
+    var oppositeNumber = 0
+    switch isFind {
+        case true: oppositeNumber = findOpposite
+        default: oppositeNumber = findOpposite - n 
+    }
+    return oppositeNumber
+}
