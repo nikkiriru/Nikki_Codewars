@@ -1,0 +1,13 @@
+// Your task is to write function factorial.
+
+func factorial(_ n: Int) -> UInt64 {
+    var factorialNumber: UInt64 = 1
+    guard n >= 0 else {print("Input number should be positive")
+                       return 0}
+    guard n > 1 else {return factorialNumber}
+    let range = 1...n
+    for each in range {
+        factorialNumber *= UInt64(each)
+    }
+    return factorialNumber
+}
