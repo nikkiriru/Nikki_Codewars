@@ -1,0 +1,22 @@
+// Your task in this kata is to implement a function that calculates the sum of the integers inside a string. For example, in the string "The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog", the sum of the integers is 3635.
+// Note: only positive integers will be tested.
+
+func withoutWords(_ string: String) -> String {
+    var newString = ""
+    let range = "0"..."9"
+    for each in string.lowercased() {
+        if range.contains(String(each)) {newString += String(each)}
+        else {newString += " "}
+    }
+    return newString
+}
+
+func sumOfIntegersInString(_ string: String) -> Int {
+    var sum = 0
+    let stringWithoutWords = withoutWords(string)
+    let arrayWithoutSpaces = stringWithoutWords.split(separator: " ")
+    guard !arrayWithoutSpaces.isEmpty else {return sum}
+    let arrayOfIntegers = arrayWithoutSpaces.map {Int($0)!}
+    sum = arrayOfIntegers.reduce(0, {$0 + $1})
+    return sum
+}
